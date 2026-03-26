@@ -1,0 +1,54 @@
+/* IDENTIFY THE WEED */
+
+features(jungle_rice, [no_ligule, finger_like_seed_head]).					/*LIST FOR EACH WEEDS FEATURE*/
+features(wild_oat, [twisted_awn_on_seeds, hollow_stem]).
+features(bermuda_grass, [creeping_runners_on_ground,crow_foot_spikes_at_top]).
+features(crowfoot_grass, [seed_head_like_crows_foot,bends_and_roots_at_nodes]).
+features(bathua, [white_powder_on_leaf_underside, red_striped_stem]).
+
+weed_killer(jungle_rice,'Bispyribac Sodium','100-120 ml/acre').			/*FACTS FOR HERBICIDE TO USE AND DOSAGE*/
+weed_killer(wild_oat,'Clodinafop-Propargyl','160 g/acre').
+weed_killer(bermuda_grass,'Glyphosate','1.6litre/acre').
+weed_killer(crowfoot_grass,'Quizalofop-ethyl','400 ml/acre').
+weed_killer(bathua,'Metsulfuron Methyl','8 g/acre').
+
+weed(jungle_rice,'Jungle_rice').
+weed(wild_oat,'Wild_oat').							/*WEED NAME*/
+weed(bermuda_grass,'Bermuda_grass').
+weed(crowfoot_grass,'Crowfoot_grass').
+weed(bathua,'Bathua').
+
+checkElement(F, [F|_]).                    
+checkElement(F, [_|T]) :-
+checkElement(F, T).
+
+two_features(F1, F2, W) :-
+features(W, List),
+checkElement(F1, List),
+checkElement(F2, List),
+weed(W, Name),
+weed_killer(W, Herb, Dose),
+write('Weed : '), write(Name),
+write('Herb : '), write(Herb), 
+write('Dose : '), write(Dose).
+
+one_feature(F1, W) :-
+features(W, List),
+checkElement(F1, List),
+weed(W, Name),
+weed_killer(W, Herb, Dose),
+write('Weed : '), write(Name),
+write('Herb : '), write(Herb), 
+write('Dose : '), write(Dose).
+
+checkfor_all :-
+weed(W, _),
+one_feature(_, W),
+fail.
+checkfor_all.
+
+
+/*QUERY QUESTIONS WHICH CAN BE ASKED ARE LIKE */
+/*one_feature(hollow_stem, W).*/
+/*one_feature(creeping_runners_on_ground, W).*/
+/*checkfor_all.*/
