@@ -23,7 +23,7 @@ checkElement(F, [F|_]).
 checkElement(F, [_|T]) :-
 checkElement(F, T).
 
-two_features(F1, F2, W) :-
+two_features(F1, F2, W) :-    /*This checks both of the features by going to the fact list and checking both the feature which is given by the query giver*/
 features(W, List),
 checkElement(F1, List),
 checkElement(F2, List),
@@ -33,7 +33,7 @@ write('Weed : '), write(Name),
 write('Herb : '), write(Herb), 
 write('Dose : '), write(Dose).
 
-one_feature(F1, W) :-
+one_feature(F1, W) :-    /*This checks for one feature given qury giver*/
 features(W, List),
 checkElement(F1, List),
 weed(W, Name),
@@ -42,7 +42,7 @@ write('Weed : '), write(Name),
 write('Herb : '), write(Herb), 
 write('Dose : '), write(Dose).
 
-checkfor_all :-
+checkfor_all :-      /*THis is for going back on the top again and going to other weeds to check if the features match by firrst*/
 weed(W, _),
 one_feature(_, W),
 fail.
