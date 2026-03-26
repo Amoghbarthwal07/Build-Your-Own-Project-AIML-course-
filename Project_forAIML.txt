@@ -1,4 +1,5 @@
 /* IDENTIFY THE WEED */
+/*❗This is the txt file for the code the functional part is the ".pl" file which is also present in the same repository❗*/
 
 features(jungle_rice, [no_ligule, finger_like_seed_head]).					/*LIST FOR EACH WEEDS FEATURE*/
 features(wild_oat, [twisted_awn_on_seeds, hollow_stem]).
